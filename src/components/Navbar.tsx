@@ -89,14 +89,14 @@ export function Navbar() {
   return (
     <>
       {/* 1. LOGO MOBILE FIXA SEPARADA - TOTALMENTE DESACOPLADA DO HEADER */}
-      <div className="lg:hidden fixed -top-3.5 sm:-top-4 left-2 sm:left-3 z-[45] pointer-events-none">
+      <div className="lg:hidden fixed top-2 sm:top-2.5 left-2.5 sm:left-4 z-[45] pointer-events-none">
         <Link
           href="/"
           onClick={handleLogoClick}
           className="flex items-center group focus:outline-none pointer-events-auto"
           aria-label="Ir para a página inicial"
         >
-          <div className="relative h-20 sm:h-22 w-32 sm:w-36 max-w-[36vw] transition-transform duration-300 group-hover:scale-105">
+          <div className="relative h-14 sm:h-16 w-32 sm:w-36 max-w-[36vw] transition-transform duration-300 group-hover:scale-105">
             <Image
               src={currentLogo}
               alt={OFFICE_INFO.name}
@@ -113,7 +113,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 w-full max-w-full z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-[var(--bg-primary)]/95 backdrop-blur-md shadow-sm border-b border-[var(--border-subtle)]/30 py-2 sm:py-2.5"
+            ? "bg-[var(--bg-primary)]/95 backdrop-blur-md shadow-sm border-b border-[var(--border-subtle)]/30 py-2.5 sm:py-3"
             : "bg-transparent py-3 sm:py-4"
         }`}
       >
@@ -121,18 +121,18 @@ export function Navbar() {
           <div className="relative min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-between gap-2 sm:gap-4">
             
             {/* Espaçador Mobile para proteger o respiro da logo */}
-            <div className="lg:hidden h-6 w-32 sm:w-36 max-w-[36vw] flex-shrink-0 pointer-events-none" />
+            <div className="lg:hidden h-8 w-32 sm:w-36 max-w-[36vw] flex-shrink-0 pointer-events-none" />
 
-            {/* Logo Desktop: Container travado em h-10 com logo interna de h-22 xl:h-26 (+20% sem alterar altura da barra) */}
-            <div className="hidden lg:flex items-center justify-start relative flex-shrink-0 w-60 xl:w-72 h-10 pointer-events-none">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-auto">
+            {/* Logo Desktop: Container ajustado com folga do topo */}
+            <div className="hidden lg:flex items-center justify-start relative flex-shrink-0 w-60 xl:w-72 h-12 pointer-events-none">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 mt-1 xl:mt-2 pointer-events-auto">
                 <Link
                   href="/"
                   onClick={handleLogoClick}
                   className="flex items-center group focus:outline-none"
                   aria-label="Ir para a página inicial"
                 >
-                  <div className="relative h-22 xl:h-26 w-60 xl:w-72 transition-transform duration-300 group-hover:scale-105">
+                  <div className="relative h-16 xl:h-20 w-60 xl:w-72 transition-transform duration-300 group-hover:scale-105">
                     <Image
                       src={currentLogo}
                       alt={OFFICE_INFO.name}
