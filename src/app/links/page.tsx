@@ -272,23 +272,73 @@ export default function LinksPage() {
         </div>
       </div>
 
-      {/* ===================== VERSÃO MOBILE (100% Fit Sem Scroll + Logo Centralizada - h-[100dvh] overflow-hidden) ===================== */}
-      <div className="lg:hidden relative flex flex-col justify-between h-[100dvh] max-h-[100dvh] w-full px-4 py-3 overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FAFAFA] to-[#F3F4F6]">
-        {/* Linhas Geométricas Sutis de Fundo */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+      {/* ===================== VERSÃO MOBILE (100% Fit Sem Scroll + Logo Centralizada + Cards Agrupados - h-[100dvh] overflow-hidden) ===================== */}
+      <div className="lg:hidden relative flex flex-col justify-between h-[100dvh] max-h-[100dvh] w-full px-4 py-3 sm:py-4 overflow-hidden bg-[#FAFAFA]">
+        {/* Linhas e Formas Geométricas Minimalistas em Dourado no Plano de Fundo */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
+          {/* Brilho radial dourado sutil */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(210,180,116,0.13)_0%,rgba(250,250,250,0)_70%)]" />
+
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <line x1="-15%" y1="15%" x2="115%" y2="40%" stroke="#D2B474" strokeOpacity="0.12" strokeWidth="1" />
-            <line x1="-15%" y1="80%" x2="115%" y2="55%" stroke="#D2B474" strokeOpacity="0.12" strokeWidth="1" />
-            <circle cx="90%" cy="15%" r="70" fill="none" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.15" strokeDasharray="3 3" />
-            <circle cx="10%" cy="85%" r="80" fill="none" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.15" strokeDasharray="4 4" />
+            <defs>
+              {/* Malha ultra fina com nós dourados */}
+              <pattern id="golden-mobile-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#D2B474" strokeWidth="0.45" strokeOpacity="0.09" />
+                <circle cx="0" cy="0" r="0.9" fill="#D2B474" fillOpacity="0.22" />
+              </pattern>
+              {/* Gradientes lineares para traços dourados */}
+              <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#D2B474" stopOpacity="0.05" />
+                <stop offset="50%" stopColor="#D2B474" stopOpacity="0.38" />
+                <stop offset="100%" stopColor="#D2B474" stopOpacity="0.05" />
+              </linearGradient>
+              <linearGradient id="goldGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#D2B474" stopOpacity="0.05" />
+                <stop offset="50%" stopColor="#D2B474" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#D2B474" stopOpacity="0.05" />
+              </linearGradient>
+            </defs>
+
+            {/* Grid geométrico */}
+            <rect width="100%" height="100%" fill="url(#golden-mobile-grid)" />
+
+            {/* Linhas diagonais estruturais elegantes */}
+            <line x1="-10%" y1="16%" x2="110%" y2="34%" stroke="url(#goldGrad1)" strokeWidth="0.8" />
+            <line x1="-10%" y1="84%" x2="110%" y2="66%" stroke="url(#goldGrad1)" strokeWidth="0.8" />
+            <line x1="110%" y1="12%" x2="-10%" y2="44%" stroke="url(#goldGrad2)" strokeWidth="0.6" strokeDasharray="3 3" />
+            <line x1="110%" y1="88%" x2="-10%" y2="56%" stroke="url(#goldGrad2)" strokeWidth="0.6" strokeDasharray="3 3" />
+
+            {/* Linhas verticais de enquadramento arquitetônico */}
+            <line x1="6%" y1="0" x2="6%" y2="100%" stroke="#D2B474" strokeWidth="0.5" strokeOpacity="0.18" />
+            <line x1="94%" y1="0" x2="94%" y2="100%" stroke="#D2B474" strokeWidth="0.5" strokeOpacity="0.18" />
+            <line x1="0" y1="22%" x2="100%" y2="22%" stroke="#D2B474" strokeWidth="0.5" strokeOpacity="0.14" strokeDasharray="5 5" />
+            <line x1="0" y1="78%" x2="100%" y2="78%" stroke="#D2B474" strokeWidth="0.5" strokeOpacity="0.14" strokeDasharray="5 5" />
+
+            {/* Círculos e Arcos Geométricos Minimalistas */}
+            <circle cx="88%" cy="18%" r="85" fill="none" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.22" />
+            <circle cx="88%" cy="18%" r="62" fill="none" stroke="#D2B474" strokeWidth="0.5" strokeOpacity="0.15" strokeDasharray="3 3" />
+
+            <circle cx="12%" cy="80%" r="95" fill="none" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.20" />
+            <circle cx="12%" cy="80%" r="70" fill="none" stroke="#D2B474" strokeWidth="0.5" strokeOpacity="0.15" strokeDasharray="4 4" />
+
+            {/* Losangos / Diamantes Geométricos Minimalistas */}
+            <polygon points="40,85 54,99 40,113 26,99" fill="none" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.28" />
+            <polygon points="340,650 354,664 340,678 326,664" fill="none" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.28" />
+
+            {/* Marcadores de precisão em cruz (+) nas interseções */}
+            <path d="M 6% 22% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 94% 22% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 6% 78% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 94% 78% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D2B474" strokeWidth="0.75" strokeOpacity="0.45" />
           </svg>
         </div>
 
-        {/* Topo Mobile - Logo com o dobro do tamanho centralizada */}
-        <div className="relative z-10 w-full flex flex-col items-center justify-center text-center pt-1 pb-1">
+        {/* Conteúdo Central Unificado: Logo + Cards Agrupados Sem Espaço Ocioso */}
+        <div className="relative z-10 w-full max-w-md mx-auto my-auto flex flex-col items-center">
+          {/* Logo Centralizada no Mobile */}
           <Link
             href="/"
-            className="relative block w-[92vw] max-w-[360px] h-32 sm:h-36 mx-auto cursor-pointer group focus:outline-none"
+            className="relative block w-[84vw] max-w-[280px] sm:max-w-[320px] h-24 sm:h-28 mx-auto cursor-pointer group focus:outline-none mb-3 sm:mb-4"
             aria-label="Ir para a página inicial"
           >
             <Image
@@ -296,94 +346,90 @@ export default function LinksPage() {
               alt={OFFICE_INFO.name}
               fill
               priority
-              className="object-contain object-center drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 768px) 360px, 320px"
+              className="object-contain object-center drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 320px, 280px"
             />
           </Link>
 
-          {/* Linha compacta com as Áreas em pílulas */}
-          <div className="flex items-center justify-center gap-1.5 mt-1 flex-wrap">
-            <span className="text-[0.625rem] px-2 py-0.5 rounded-full bg-[#111111] text-[#D2B474] font-heading font-medium">
-              Direito Trabalhista
-            </span>
-            <span className="text-[0.625rem] px-2 py-0.5 rounded-full bg-[#111111] text-[#D2B474] font-heading font-medium">
-              Direito Previdenciário
-            </span>
-            <span className="text-[0.625rem] px-2 py-0.5 rounded-full bg-[#F3F4F6] text-[#111111] border border-[#6B7280]/20 font-heading font-medium">
-              Maringá & Online
-            </span>
-          </div>
-        </div>
+          {/* Cards Rápidos Juntos com Espaçamento Ajustado (gap-2) */}
+          <div className="w-full flex flex-col gap-2 sm:gap-2.5 px-0.5">
+            {quickLinks.slice(0, 5).map((item) => {
+              const Icon = item.icon;
+              const isInternal = item.href.startsWith("/");
+              const buttonClasses = `group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl border transition-all duration-200 active:scale-[0.98] ${
+                item.highlight
+                  ? "bg-[#25D366] text-white border-transparent shadow-[0_3px_12px_rgba(37,211,102,0.28)]"
+                  : "bg-white/95 backdrop-blur-xs hover:bg-white border-[#6B7280]/20 text-[#111111] shadow-2xs hover:border-[#D2B474]"
+              }`;
 
-        {/* Links Rápidos Mobile - 100% Fit Sem Barra de Rolagem */}
-        <div className="relative z-10 w-full flex-1 flex flex-col justify-between max-w-md mx-auto py-1 px-0.5">
-          {quickLinks.slice(0, 5).map((item) => {
-            const Icon = item.icon;
-            const isInternal = item.href.startsWith("/");
-            const buttonClasses = `group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl border transition-all duration-200 active:scale-[0.98] ${
-              item.highlight
-                ? "bg-[#25D366] text-white border-transparent shadow-[0_3px_12px_rgba(37,211,102,0.3)]"
-                : "bg-white/95 backdrop-blur-xs hover:bg-white border-[#6B7280]/25 text-[#111111] shadow-2xs hover:border-[#D2B474]"
-            }`;
-
-            const content = (
-              <>
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                      item.highlight ? "bg-white/20 text-white" : "bg-[#F3F4F6] border border-[#6B7280]/20 text-[#D2B474]"
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="min-w-0">
-                    <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight truncate">{item.title}</h2>
-                    <p
-                      className={`text-[0.6875rem] font-body truncate ${
-                        item.highlight ? "text-white/90" : "text-gray-500"
+              const content = (
+                <>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div
+                      className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                        item.highlight ? "bg-white/20 text-white" : "bg-[#F3F4F6] border border-[#6B7280]/20 text-[#D2B474]"
                       }`}
                     >
-                      {item.subtitle}
-                    </p>
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="min-w-0">
+                      <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight truncate">{item.title}</h2>
+                      <p
+                        className={`text-[0.6875rem] font-body truncate ${
+                          item.highlight ? "text-white/90" : "text-gray-500"
+                        }`}
+                      >
+                        {item.subtitle}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-current flex-shrink-0 ml-1.5" />
-              </>
-            );
+                  <ArrowUpRight className="w-3.5 h-3.5 text-current flex-shrink-0 ml-1.5" />
+                </>
+              );
 
-            return isInternal ? (
-              <Link key={item.id} href={item.href} className={buttonClasses}>
-                {content}
-              </Link>
-            ) : (
-              <a
-                key={item.id}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonClasses}
-              >
-                {content}
-              </a>
-            );
-          })}
+              return isInternal ? (
+                <Link key={item.id} href={item.href} className={buttonClasses}>
+                  {content}
+                </Link>
+              ) : (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClasses}
+                >
+                  {content}
+                </a>
+              );
+            })}
 
-          {/* Linha com Redes Sociais no Mobile */}
-          <div className="pt-1">
+            {/* Botão Instagram Oficial */}
             <a
               href={OFFICE_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white/95 border border-[#6B7280]/25 text-[#111111] hover:border-[#D2B474] transition-all text-xs font-heading font-semibold shadow-2xs w-full"
+              className="group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl bg-white/95 border border-[#6B7280]/20 text-[#111111] hover:border-[#D2B474] active:scale-[0.98] transition-all shadow-2xs w-full"
             >
-              <InstagramIcon className="w-3.5 h-3.5 text-[#D2B474]" />
-              <span>Instagram Oficial ({OFFICE_INFO.instagramHandle})</span>
-              <ArrowUpRight className="w-3 h-3 text-[#D2B474]" />
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#F3F4F6] border border-[#6B7280]/20 text-[#D2B474]">
+                  <InstagramIcon className="w-3.5 h-3.5" />
+                </div>
+                <div className="min-w-0 text-left">
+                  <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight text-[#111111]">
+                    Instagram Institucional
+                  </h2>
+                  <p className="text-[0.6875rem] font-body text-gray-500 truncate">
+                    {OFFICE_INFO.instagramHandle} • Conteúdo jurídico e direitos
+                  </p>
+                </div>
+              </div>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#D2B474] group-hover:text-[#111111] flex-shrink-0 ml-1.5 transition-colors" />
             </a>
           </div>
         </div>
 
-        {/* Rodapé Mobile Compacto (Sem caixa duplicada de especialidades) */}
+        {/* Rodapé Mobile Compacto */}
         <div className="relative z-10 text-center text-[0.625rem] sm:text-[0.6875rem] text-gray-500 font-body pt-1 pb-1">
           <p>{OFFICE_INFO.addressShort} • © {new Date().getFullYear()} {OFFICE_INFO.name}</p>
         </div>
